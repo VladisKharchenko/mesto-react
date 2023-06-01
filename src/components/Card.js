@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function Card({ card, onCardClick }) {
+  const [likeCount] = useState(0);
+
   function handleClick() {
     onCardClick(card);
   }
@@ -19,7 +21,7 @@ function Card({ card, onCardClick }) {
         <h2 className="place__title">{card.name}</h2>
         <div>
           <button type="button" className="place__like-button"></button>
-          <div className="place__like-count"></div>
+          <div className="place__like-count">{likeCount}</div>
         </div>
       </div>
     </article>
