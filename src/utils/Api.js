@@ -25,7 +25,7 @@ class Api {
 
   updateUserInfo({ name, about }) {
     return fetch(`${this.baseUrl}/users/me`, {
-      method: "PATCH",
+      method: 'PATCH',
       headers: this.headers,
       body: JSON.stringify({
         name: name,
@@ -34,9 +34,9 @@ class Api {
     }).then(this._checkResponse);
   }
 
-  addNewCard(name, link) {
+  addNewCard({name, link}) {
     return fetch(`${this.baseUrl}/cards`, {
-      method: "POST",
+      method: 'POST',
       headers: this.headers,
       body: JSON.stringify({
         name: name,
@@ -47,28 +47,28 @@ class Api {
 
   deleteCard(cardId) {
     return fetch(`${this.baseUrl}/cards/${cardId}`, {
-      method: "DELETE",
+      method: 'DELETE',
       headers: this.headers,
     }).then(this._checkResponse);
   }
 
   addLike(cardId) {
     return fetch(`${this.baseUrl}/cards/${cardId}/likes`, {
-      method: "PUT",
+      method: 'PUT',
       headers: this.headers,
     }).then(this._checkResponse);
   }
 
   removeLike(cardId) {
     return fetch(`${this.baseUrl}/cards/${cardId}/likes`, {
-      method: "DELETE",
+      method: 'DELETE',
       headers: this.headers,
     }).then(this._checkResponse);
   }
 
   changeAvatar(avatar) {
     return fetch(`${this.baseUrl}/users/me/avatar`, {
-      method: "PATCH",
+      method: 'PATCH',
       headers: this.headers,
       body: JSON.stringify({
         avatar: avatar,
@@ -78,10 +78,10 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: "https://nomoreparties.co/v1/cohort-65",
+  baseUrl: 'https://nomoreparties.co/v1/cohort-65',
   headers: {
-    authorization: "d7db98be-0f68-4b1c-bf6a-476af911ba25",
-    "Content-Type": "application/json",
+    authorization: 'd7db98be-0f68-4b1c-bf6a-476af911ba25',
+    'Content-Type': 'application/json',
   },
 });
 

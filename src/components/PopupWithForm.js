@@ -9,6 +9,11 @@ function PopupWithForm(props) {
     props.onClose();
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    props.onSubmit(e);
+  };
+
   return (
     <div className={popupClassName}>
       <div className="popup__container">
@@ -17,6 +22,7 @@ function PopupWithForm(props) {
           className={`form form-${props.name}`}
           name={props.name}
           noValidate
+          onSubmit={handleSubmit}
         >
           {props.children}
           <button type="submit" className="popup__submit popup__save-button">
